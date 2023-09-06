@@ -37,9 +37,9 @@
 
 <script setup lang='ts'>
 import _ from "lodash";
-import { ref, VueElement, onMounted, nextTick, watch, computed } from "vue";
-import gridItem from "./gridItem.vue";
-import contextMenu from "./contextMenu/index.vue";
+import { ref, VueElement, onMounted, nextTick, watch } from "vue";
+import gridItem from "@/views/editor/components/gridItem/index.vue";
+import contextMenu from "@/views/editor/components/contextMenu/index.vue";
 import { removeNode, getEventInCanvasPos } from "@/utils/index";
 import { useSchemaStore } from "@/store/schema";
 const useSchema = useSchemaStore();

@@ -8,7 +8,7 @@
 
 <script setup lang='ts'>
 import { ref } from "vue";
-import Left from "./components/left.vue";
+import Left from "./components/left/index.vue";
 import CenterBox from "./components/center/index.vue";
 import Right from "./components/right/index.vue";
 </script>

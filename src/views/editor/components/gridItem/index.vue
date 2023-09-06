@@ -298,7 +298,7 @@ const handleMouseDownOnPoint = (point: any, e: any) => {
 // point双击 恢复样式自适应状态
 const handlePointDoubleclick = (point: any, e: any) => {
   if (useSchema.currentGrid?.config.data.position === "absolute") return;
-  let params = {};
+  let params: any = {};
   let { height } = useSchema.currentGrid.style;
   switch (point) {
     case "b":
