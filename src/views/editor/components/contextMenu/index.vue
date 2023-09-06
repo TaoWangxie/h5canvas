@@ -74,7 +74,7 @@ monitorSelfClick("contextmenu", async () => {
   useSchema.HIDE_CONTEXT_MENU();
 });
 
-//菜单点击menu
+//菜单点击menu22
 const menuClick = (val) => {
   let arr = ["lock", "unlock", "cut", "copy"];
   switch (val) {
