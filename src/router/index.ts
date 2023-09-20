@@ -16,6 +16,15 @@ const router = createRouter({
           index: 0,
         },
     },
+    {
+      path: "/demo",
+      name: "demo",
+      component: () =>
+        import(/* webpackChunkName: "demo" */ "@/views/demo/index.vue"),
+        meta: {
+          index: 0,
+        },
+    },
   ],
 });
 
