@@ -26,7 +26,7 @@
           :key="index"
           :grid="item"
           @gridClick="childrenGridClick"
-        />
+        ></gridItem>
       </template>
     </component>
     <template v-if="isActive">
@@ -45,6 +45,7 @@
 <script setup lang='ts'>
 import _ from "lodash";
 import { ref, computed, watch } from "vue";
+import gridItem from "@/views/editor/components/gridItem/index.vue";
 import { removeNode, isOwnChildren } from "@/utils/index";
 import { useSchemaStore } from "@/store/schema";
 const useSchema = useSchemaStore();
