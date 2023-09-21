@@ -1,4 +1,5 @@
 import { defineStore } from "pinia";
+import _ from "lodash-es"
 import { hasOwn, removeNode } from "@/utils/index";
 
 export const useSchemaStore = defineStore({
@@ -23,6 +24,9 @@ export const useSchemaStore = defineStore({
 
       isShowPos: false as boolean,
       isPosition: "relative" as string,
+
+      snapshotData: [] as any, // 编辑器快照数据
+      snapshotIndex: -1 as any, // 快照索引
     };
   },
   actions: {
@@ -72,6 +76,36 @@ export const useSchemaStore = defineStore({
         if (height) grid.style.height = height;
         if (rotate) grid.style.rotate = rotate;
       }
+    },
+    //快照
+    RECORD_SNAPSHOT() {
+      // 添加新的快照
+      this.snapshotData[++this.snapshotIndex] = _.cloneDeep(this.grids)
+      // 在 undo 过程中，添加新的快照时，要将它后面的快照清理掉
+      if (this.snapshotIndex < this.snapshotData.length - 1) {
+          this.snapshotData = this.snapshotData.slice(0, this.snapshotIndex + 1)
+      }
+      console.log(this.snapshotData);
+    },
+    //撤销
+    UNDO() {
+      if (this.snapshotIndex >= 0) {
+          this.snapshotIndex--
+          const grids = _.cloneDeep(this.snapshotData[this.snapshotIndex]) || []
+          if (this.currentGrid) {
+              // 如果当前组件不在 layoutData 中，则置空
+              let needClean = !grids.find(grid => this.currentGrid.id === grid.id)
+              needClean && (this.currentGrid = null)
+          }
+          this.grids = grids
+        }
+    },
+    //重做
+    REDO() {
+        if (this.snapshotIndex < this.snapshotData.length - 1) {
+          this.snapshotIndex++
+          this.grids = _.cloneDeep(this.snapshotData[this.snapshotIndex])
+        }
     },
     //显示menu
     SHOW_CONTEXT_MENU(payload: { top; left }) {

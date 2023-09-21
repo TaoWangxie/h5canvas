@@ -113,7 +113,9 @@ const isPosR = computed(() => {
   return useSchema.currentGrid?.config.data.position === "relative";
 });
 
-const handleChange = (currentValue: any, oldValue: any, type?: string) => {};
+const handleChange = (currentValue: any, oldValue: any, type?: string) => {
+  useSchema.RECORD_SNAPSHOT();
+};
 </script>
 <style lang="scss" scoped>
 .baseAttr {

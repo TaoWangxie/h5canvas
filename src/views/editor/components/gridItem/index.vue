@@ -210,6 +210,7 @@ const handleDrop = (e) => {
   useSchema.setData("currentGrid", targetGrid);
   useSchema.setData("enterTargetGrid", null);
   useSchema.setData("isPosition", "relative");
+  useSchema.RECORD_SNAPSHOT();
 };
 const getPosStyle = (e) => {
   const gridInfo = gridRef.value.getBoundingClientRect();
@@ -219,6 +220,7 @@ const getPosStyle = (e) => {
   };
 };
 // 组件点击
+let isMove = ref(false);
 const handleMouseDownOnGrid = (e: any) => {
   //画布位置信息
   useSchema.HIDE_CONTEXT_MENU();
@@ -232,6 +234,7 @@ const handleMouseDownOnGrid = (e: any) => {
     const startTop = Number(top);
     const startLeft = Number(left);
     const move = (moveEvent) => {
+      isMove.value = true;
       const curX = moveEvent.clientX;
       const curY = moveEvent.clientY;
       top = Math.round(curY - startY + startTop);
@@ -242,8 +245,12 @@ const handleMouseDownOnGrid = (e: any) => {
       });
     };
     const up = () => {
+      if (isMove.value) {
+        useSchema.RECORD_SNAPSHOT();
+      }
       document.removeEventListener("mousemove", move);
       document.removeEventListener("mouseup", up);
+      isMove.value = false;
     };
     document.addEventListener("mousemove", move);
     document.addEventListener("mouseup", up);
@@ -272,6 +279,7 @@ const handleMouseDownOnPoint = (point: any, e: any) => {
   let disW = gridRef.value.offsetWidth; // 获取拖拽前div的宽
   let disH = gridRef.value.offsetHeight; // 获取拖拽前div的高
   const move = (moveEvent) => {
+    isMove.value = true;
     let ev = moveEvent || window.event;
     let width = ev.clientX - disX + disW - 8;
     let height = ev.clientY - disY + disH - 8;
@@ -292,8 +300,12 @@ const handleMouseDownOnPoint = (point: any, e: any) => {
     useSchema.SET_SHAP_STYLE(params);
   };
   const up = () => {
+    if (isMove.value) {
+      useSchema.RECORD_SNAPSHOT();
+    }
     document.removeEventListener("mousemove", move);
     document.removeEventListener("mouseup", up);
+    isMove.value = false;
   };
   document.addEventListener("mousemove", move);
   document.addEventListener("mouseup", up);
@@ -315,6 +327,7 @@ const handlePointDoubleclick = (point: any, e: any) => {
       break;
   }
   useSchema.SET_SHAP_STYLE(params);
+  useSchema.RECORD_SNAPSHOT();
 };
 //=====================边距样式======================
 const emits = defineEmits(["gridClick"]);

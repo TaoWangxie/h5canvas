@@ -27,6 +27,7 @@ let styleAttrList = [
   "display",
   "flex",
   "flexWrap",
+  "overflowY",
   "bgcSrc",
   "backgroundColor",
   "opacity",

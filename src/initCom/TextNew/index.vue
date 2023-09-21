@@ -63,6 +63,7 @@ let styleAttrList = [
   "display",
   "fontSize",
   "color",
+  "overflowY",
   "bgcSrc",
   "backgroundColor",
   "lineHeight",

@@ -18,15 +18,32 @@
 <script setup lang='ts'>
 import { ref, getCurrentInstance } from "vue";
 import previewPage from "@/views/editor/components/preview/index.vue";
+//store管理
+import { useSchemaStore } from "@/store/schema";
+const useSchema = useSchemaStore();
 const btnList: any[] = [
   {
+    id: "0",
+    name: "撤销",
+  },
+  {
     id: "1",
+    name: "重做",
+  },
+  {
+    id: "2",
     name: "预览",
   },
 ];
 const btnClick = (data: any) => {
   switch (data.id) {
+    case "0":
+      useSchema.UNDO();
+      break;
     case "1":
+      useSchema.REDO();
+      break;
+    case "2":
       preview();
       break;
     default:

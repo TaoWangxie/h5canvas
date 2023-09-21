@@ -88,7 +88,7 @@ const menuClick = (val) => {
       useSchema[val]();
       break;
   }
-  // !arr.includes(val) && store.commit("editor/RECORD_SNAPSHOT");
+  !arr.includes(val) && useSchema.RECORD_SNAPSHOT();
 };
 //鼠标抬起 冒泡
 const handleMouseUp = () => {

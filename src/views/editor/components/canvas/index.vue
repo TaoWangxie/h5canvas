@@ -111,6 +111,7 @@ const handleDrop = (e) => {
   useSchema.setData("currentGrid", targetGrid);
   useSchema.setData("enterTargetGrid", null);
   useSchema.setData("isShowPos", false);
+  useSchema.RECORD_SNAPSHOT();
 };
 const getPosStyle = (e, targetGrid) => {
   const canvasInfo = (
