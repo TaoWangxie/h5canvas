@@ -7,7 +7,7 @@ export const useSchemaStore = defineStore({
     return {
       canvasEPos: null as any, //鼠标相对于编辑器的位置
       canvasW: 300, //画布宽
-      canvasH: 700, //画布高
+      canvasH: 600, //画布高
 
       grids: [] as any, //画布所有组件
       currentGrid: null as any, //当前组件
@@ -62,14 +62,7 @@ export const useSchemaStore = defineStore({
         this[key].splice(index, 1);
       }
     },
-    SET_SHAP_STYLE(payload: {
-      index: any;
-      top: number;
-      left: number;
-      width: number;
-      height: number;
-      rotate?: number;
-    }) {
+    SET_SHAP_STYLE(payload: any) {
       let { top, left, width, height, rotate } = payload;
       let grid = this.currentGrid;
       if (grid) {

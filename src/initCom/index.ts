@@ -13,7 +13,8 @@ export const components = [
     'VideoBox',
     'VideoBoxNew',
     'Vechart',
-    'Table'
+    'Table',
+    'LoopBox'
 ]
 export function setupGlobalH5Com(app: App<Element>) {
     components.forEach(key => {

@@ -58,6 +58,7 @@ const handleDragStart = (e: any) => {
   let grid = {
     id: generateID(),
     comKey: gridData.comKey,
+    comName: gridData.label,
     isLock: false, //是否已锁定
     isPosa: false, // 是否绝对定位
     isSlot: gridData.isSlot, //是否已锁定

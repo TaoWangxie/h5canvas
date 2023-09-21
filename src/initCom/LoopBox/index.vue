@@ -1,9 +1,9 @@
 <template>
-  <block>
-    <block :style="styleAttr" v-for="(item, index) in list" :key="index">
+  <div :style="styleAttr">
+    <block v-for="(item, index) in list" :key="index">
       <slot></slot>
     </block>
-  </block>
+  </div>
 </template>
 
 <script setup lang='ts'>
@@ -19,7 +19,11 @@ const props = withDefaults(defineProps<Props>(), {
   gridId: "",
 });
 
-let list = ref([]);
+const list = computed(() => {
+  return useSchema.cmsData?.data?.num
+    ? useSchema.cmsData?.data?.num
+    : configInfo.value?.num;
+});
 
 const configInfo: any = ref({});
 const styleAttr: any = computed(() => {
@@ -31,6 +35,7 @@ let styleAttrList = [
   "display",
   "flex",
   "flexWrap",
+  "overflowY",
   "bgcSrc",
   "backgroundColor",
   "opacity",

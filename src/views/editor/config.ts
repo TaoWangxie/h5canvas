@@ -492,4 +492,53 @@ export const gridTags = [
             }
         },
     },
+    {
+        id: '3',
+        label: '循环框',
+        comKey: 'LoopBox',
+        isSlot: true,
+        src: 'https://phpimg.ziroom.com/e748cc0c-6b14-4f43-bcd3-c49ebb8c68a9.png',
+        style: {
+            width: "auto",
+            height: 300
+        },
+        config: {
+            data: {
+                position: 'relative',
+                num: 2,
+                overflowY: 'auto'
+            },
+            fieldList: [
+                { isCms: false, label: "定位", newProp: '', prop: "position", type: "radio", list: 'positionList' },
+                { isCms: false, label: "循环个数", newProp: '', prop: "num", type: "inputNumber", controlsPosition: "right", min: 1 },
+                { isCms: false, label: "可滚动", newProp:'', prop: "overflowY", type: "select", list: 'overflowList' },
+            ],
+            listTypeInfo:{
+                positionList:[
+                    {
+                        label: 'relative',
+                        value: 'relative'
+                    },
+                    {
+                        label: 'absolute',
+                        value: 'absolute'
+                    },
+                ],
+                overflowList:[
+                    {
+                        label: 'auto',
+                        value: 'auto'
+                    },
+                    {
+                        label: 'hidden',
+                        value: 'hidden'
+                    },
+                    {
+                        label: 'scroll',
+                        value: 'scroll'
+                    },
+                ],
+            }
+        },
+    },
 ]

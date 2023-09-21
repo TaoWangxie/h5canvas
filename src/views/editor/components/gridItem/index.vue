@@ -106,7 +106,9 @@ watch(
       if (useSchema.currentGrid) {
         let { width, height } = useSchema.currentGrid.style;
         let W = typeof width === "string" || !width ? 200 : width;
-        let H = typeof height === "string" || !height ? 40 : height;
+        // let H = typeof height === "string" || !height ? 40 : height;
+        // let W = width;
+        let H = height;
         useSchema.SET_SHAP_STYLE({
           width: W,
           height: H,
@@ -298,7 +300,7 @@ const handleMouseDownOnPoint = (point: any, e: any) => {
 };
 // point双击 恢复样式自适应状态
 const handlePointDoubleclick = (point: any, e: any) => {
-  if (useSchema.currentGrid?.config.data.position === "absolute") return;
+  // if (useSchema.currentGrid?.config.data.position === "absolute") return;
   let params: any = {};
   let { height } = useSchema.currentGrid.style;
   switch (point) {

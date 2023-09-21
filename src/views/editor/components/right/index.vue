@@ -5,7 +5,9 @@
         <Tab :list="tabList" :tabKey="configTab" @changeTab="changeTab"></Tab>
         <div class="right_content">
           <template v-if="useSchema.currentGrid">
-            <div class="title">基础属性</div>
+            <div class="title">
+              基础属性 （ {{ useSchema.currentGrid.comName }} ）
+            </div>
             <BaseAttr></BaseAttr>
             <!-- <div v-if="currentGrid.data" class="title">数据配置</div>
             <ComAttr :configInfo="currentGrid.data"></ComAttr> -->
@@ -152,6 +154,7 @@ watch(
     border-radius: 3px;
   }
 }
+
 .title {
   position: relative;
   display: flex;

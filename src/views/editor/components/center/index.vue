@@ -15,6 +15,7 @@
         }"
       >
         <Canvas></Canvas>
+        <CanvasResize></CanvasResize>
       </div>
       <PosBox></PosBox>
     </div>
@@ -27,6 +28,7 @@ import { onMounted, ref, VueElement } from "vue";
 import CenterNav from "./components/centerNav/index.vue";
 import PosBox from "./components/posBox/index.vue";
 import Canvas from "@/views/editor/components/canvas/index.vue";
+import CanvasResize from "@/views/editor/components/canvasResize/index.vue";
 import { isInview, mouseMoveDirection } from "@/utils/index";
 import { useSchemaStore } from "@/store/schema";
 const useSchema = useSchemaStore();
