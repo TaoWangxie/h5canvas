@@ -91,20 +91,25 @@ export const useSchemaStore = defineStore({
     UNDO() {
       if (this.snapshotIndex >= 0) {
           this.snapshotIndex--
-          const grids = _.cloneDeep(this.snapshotData[this.snapshotIndex]) || []
-          if (this.currentGrid) {
-              // 如果当前组件不在 layoutData 中，则置空
-              let needClean = !grids.find(grid => this.currentGrid.id === grid.id)
-              needClean && (this.currentGrid = null)
-          }
+          let grids = _.cloneDeep(this.snapshotData[this.snapshotIndex]) || []
           this.grids = grids
-        }
+          if (this.currentGrid) {
+            // 如果当前组件不在 layoutData 中，则置空
+            let cur = grids.find(grid => this.currentGrid.id === grid.id)
+            this.currentGrid = cur ? cur : null
+          }
+      }
     },
     //重做
     REDO() {
         if (this.snapshotIndex < this.snapshotData.length - 1) {
           this.snapshotIndex++
           this.grids = _.cloneDeep(this.snapshotData[this.snapshotIndex])
+          if (this.currentGrid) {
+            // 如果当前组件不在 layoutData 中，则置空
+            let cur = this.grids.find(grid => this.currentGrid.id === grid.id)
+            this.currentGrid = cur ? cur : null
+          }
         }
     },
     //显示menu

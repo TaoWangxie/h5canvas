@@ -84,6 +84,7 @@ watch(
     console.log(useSchema.grids);
   }
 );
+
 watch(
   () => useSchema.currentGrid?.config?.data?.flex,
   (val) => {
@@ -132,6 +133,7 @@ const outBox = [
   "marginLeft",
 ];
 const getGridStyle = (grid) => {
+  // console.log(8888888);
   let { style, config } = grid;
   let { width, height, top, left } = style;
   const result: any = {
@@ -165,6 +167,7 @@ const getGridStyle = (grid) => {
   return result;
 };
 const getGridInnerStyle = (grid) => {
+  // console.log(9999999);
   let { width, height } = grid.style;
   const result: any = {
     position: "relative",
