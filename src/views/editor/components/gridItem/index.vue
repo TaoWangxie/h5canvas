@@ -79,13 +79,6 @@ const isHover = computed(() => {
 });
 let gridRef: any = ref(null);
 watch(
-  () => useSchema.currentGrid,
-  (val) => {
-    console.log(useSchema.grids);
-  }
-);
-
-watch(
   () => useSchema.currentGrid?.config?.data?.flex,
   (val) => {
     if (val && val != "none") {
