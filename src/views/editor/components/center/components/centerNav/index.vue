@@ -81,7 +81,7 @@ const preview = () => {
   user-select: none;
   &:hover {
     cursor: pointer;
-    color: #409eff;
+    color: #ff44aa;
   }
 }
 .scaleBox {

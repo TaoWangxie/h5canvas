@@ -1,10 +1,11 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
- import path from 'path'
+import path from 'path'
+import { createSvg } from './src/icons/svgIcon'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue(), createSvg('./src/icons/svg/')],
   server: {
     open: true,
     port: 5001,

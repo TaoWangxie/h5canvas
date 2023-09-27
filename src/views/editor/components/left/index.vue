@@ -21,11 +21,11 @@ let configTab = ref("coms");
 const tabList = [
   {
     key: "coms",
-    icon: Setting,
+    icon: "com",
   },
   {
     key: "layer",
-    icon: Coin,
+    icon: "layer",
   },
 ];
 

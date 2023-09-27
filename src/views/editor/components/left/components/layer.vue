@@ -27,7 +27,7 @@ let treeRef: any = ref(null);
 watch(
   () => useSchema.currentGrid,
   (val) => {
-    treeRef.value.setCurrentKey(useSchema.currentGrid.id);
+    treeRef.value.setCurrentKey(val ? val.id : null);
   }
 );
 

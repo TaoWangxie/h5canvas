@@ -1,9 +1,7 @@
 <template>
   <div class="canvasResize">
     <span @mousedown="onMouseDown">
-      <el-icon :size="18">
-        <Rank />
-      </el-icon>
+      <svgIcon name="resize" color="#FF44AA" :size="20"></svgIcon>
     </span>
   </div>
 </template>
@@ -11,6 +9,7 @@
 <script setup lang='ts'>
 import { ref, getCurrentInstance } from "vue";
 import { DCaret, Rank } from "@element-plus/icons-vue";
+import svgIcon from "@/icons/svgIcon.vue";
 import { useSchemaStore } from "@/store/schema";
 const useSchema = useSchemaStore();
 

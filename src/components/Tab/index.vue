@@ -3,18 +3,21 @@
     <div
       v-for="(item, index) in list"
       :key="index"
-      :class="['sideSet-tab', tabKey == item.key ? 'active' : '']"
+      :class="['sideSet-tab', active(item.key) ? 'active' : '']"
       @click="changeTab(item.key)"
     >
-      <el-icon :size="16">
-        <component :is="item.icon"></component>
-      </el-icon>
+      <svgIcon
+        :name="item.icon"
+        :color="active(item.key) ? '#ffffff' : '#000000'"
+        :size="18"
+      ></svgIcon>
     </div>
   </div>
 </template>
 
 <script setup lang='ts'>
-import { ref } from "vue";
+import svgIcon from "@/icons/svgIcon.vue";
+import { ref, computed } from "vue";
 
 interface Props {
   tabKey: string;
@@ -23,6 +26,12 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   tabKey: "",
   list: () => [],
+});
+
+const active = computed(() => {
+  return (key: any) => {
+    return props.tabKey == key;
+  };
 });
 
 const emits = defineEmits(["changeTab"]);
@@ -56,7 +65,7 @@ const changeTab = (type: any) => {
   }
   .active {
     color: #fff !important;
-    background-color: #409eff;
+    background-color: #ff44aa;
   }
   .sideSet-refresh {
     display: flex;

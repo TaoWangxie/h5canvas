@@ -85,7 +85,7 @@ let configTab = ref("comConfig");
 const tabList = [
   {
     key: "comConfig",
-    icon: Setting,
+    icon: "setting",
   },
 ];
 

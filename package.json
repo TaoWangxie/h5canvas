@@ -15,6 +15,7 @@
     "pinia": "^2.1.6",
     "qiniu-js": "^3.4.1",
     "sass": "^1.66.1",
+    "svg-sprite-loader": "^6.0.11",
     "vue": "^3.2.47",
     "vue-router": "^4.2.4",
     "vue3-ace-editor": "^2.2.3"
