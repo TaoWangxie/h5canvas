@@ -46,7 +46,7 @@ const getAttr = (attr: any) => {
   let val = useSchema.cmsData?.data[attr + "_" + props.gridId]
     ? useSchema.cmsData?.data[attr + "_" + props.gridId] + unit
     : configInfo.value[attr] + unit;
-  if (["bgcSrc"].includes(attr)) {
+  if (["background"].includes(attr)) {
     return handleBgcSrc(val);
   }
   return val;

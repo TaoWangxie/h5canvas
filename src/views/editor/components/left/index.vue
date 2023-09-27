@@ -10,7 +10,6 @@
 <script setup lang='ts'>
 import _ from "lodash";
 import { ref } from "vue";
-import { Coin, Setting } from "@element-plus/icons-vue";
 import Coms from "./components/coms.vue";
 import Layer from "./components/layer.vue";
 import { useSchemaStore } from "@/store/schema";

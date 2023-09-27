@@ -64,14 +64,18 @@ let styleAttrList = [
   "fontSize",
   "color",
   "overflowY",
-  "bgcSrc",
+  "background",
   "backgroundColor",
   "lineHeight",
   "letterSpacing",
   "opacity",
   "borderWidth",
   "borderStyle",
-  "borderRadius",
+  // "borderRadius",
+  "borderTopLeftRadius",
+  "borderTopRightRadius",
+  "borderBottomRightRadius",
+  "borderBottomLeftRadius",
   "borderColor",
   "fontWeight",
   "textAlign",
@@ -95,7 +99,11 @@ const pxs = [
   "lineHeight",
   "letterSpacing",
   "borderWidth",
-  "borderRadius",
+  // "borderRadius",
+  "borderTopLeftRadius",
+  "borderTopRightRadius",
+  "borderBottomRightRadius",
+  "borderBottomLeftRadius",
   "paddingTop",
   "paddingRight",
   "paddingBottom",
@@ -121,7 +129,7 @@ const getAttr = (attr: any, cmsKeys: any) => {
   let val = cmsKeys.includes(prop)
     ? useSchema.cmsData?.data[prop] + unit
     : configInfo.value[attr] + unit;
-  if (["bgcSrc"].includes(attr)) {
+  if (["background"].includes(attr)) {
     return handleBgcSrc(val);
   }
   return val;

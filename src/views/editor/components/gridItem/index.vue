@@ -126,7 +126,6 @@ const outBox = [
   "marginLeft",
 ];
 const getGridStyle = (grid) => {
-  // console.log(8888888);
   let { style, config } = grid;
   let { width, height, top, left } = style;
   const result: any = {

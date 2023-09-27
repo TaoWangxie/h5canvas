@@ -17,12 +17,16 @@ export const gridTags = [
                 position: 'relative',
                 flex: 'none',
                 flexWrap: 'nowrap',
-                bgcSrc: '',
+                background: '',
                 backgroundColor: '',
                 opacity: 1,
                 borderWidth: 0,
                 borderStyle: 'solid',
-                borderRadius: 0,
+                // borderRadius: 0,
+                                borderTopLeftRadius: 0,
+                borderTopRightRadius: 0,
+                borderBottomRightRadius: 0,
+                borderBottomLeftRadius: 0,
                 borderColor: '#000000',
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'contain',
@@ -46,8 +50,16 @@ export const gridTags = [
                     isCms: false,label: "边框", newProp:'', prop: "border", type: 'array', children: [
                         { isCms: true,label: "边框宽度", newProp:'', prop: "borderWidth", type: "inputNumber", controlsPosition: "right", min: 0 },
                         { isCms: true,label: "边框样式", newProp:'', prop: "borderStyle", type: "select", width: '80px', list: 'borderStyleList' },
-                        { isCms: true,label: "边框圆角", newProp:'', prop: "borderRadius", type: "inputNumber", controlsPosition: "right", min: 0 },
+                        // { isCms: true,label: "边框圆角", newProp:'', prop: "borderRadius", type: "inputNumber", controlsPosition: "right", min: 0 },
                         { isCms: true,label: "边框颜色", newProp:'', prop: "borderColor", type: "color", width: '30px' },
+                    ]
+                },
+                {
+                    isCms: false,label: "圆角", newProp:'', prop: "borderRadius", type: 'array', children: [
+                        { isCms: true,label: "圆角左上", newProp:'', prop: "borderTopLeftRadius", type: "inputNumber", controlsPosition: "right", min: 0 },
+                        { isCms: true,label: "圆角右上", newProp:'', prop: "borderTopRightRadius", type: "inputNumber", controlsPosition: "right", min: 0 },
+                        { isCms: true,label: "圆角右下", newProp:'', prop: "borderBottomRightRadius", type: "inputNumber", controlsPosition: "right", min: 0 },
+                        { isCms: true,label: "圆角左下", newProp:'', prop: "borderBottomLeftRadius", type: "inputNumber", controlsPosition: "right", min: 0  },
                     ]
                 },
                 {
@@ -68,7 +80,7 @@ export const gridTags = [
                 },
                 { isCms: false,label: "不透明度", newProp:'', prop: "opacity", type: "inputNumber", min: 0.1, step: 0.1 },
                 { isCms: false,label: "背景色", newProp:'', prop: "backgroundColor", type: "color" },
-                { isCms: false,label: "背景地址", newProp:'', prop: "bgcSrc", type: "img" },
+                { isCms: false,label: "背景地址", newProp:'', prop: "background", type: "img" },
                 { isCms: false,label: "背景重复", newProp:'', prop: "backgroundRepeat", type: "select", list: 'backgroundRepeatList' },
                 { isCms: false,label: "背景尺寸", newProp:'', prop: "backgroundSize", type: "select", allowCreate: true, defaultFirstOption: true, list: 'backgroundSizeList' },
                 {
@@ -218,12 +230,16 @@ export const gridTags = [
                 opacity: 1,
                 borderWidth: 0,
                 borderStyle: 'solid',
-                borderRadius: 0,
+                // borderRadius: 0,
+                borderTopLeftRadius: 0,
+                borderTopRightRadius: 0,
+                borderBottomRightRadius: 0,
+                borderBottomLeftRadius: 0,
                 justifyContent: 'flex-start',
                 textAlign: 'left',
                 alignItems: 'flex-start',
                 borderColor: '#000000',
-                bgcSrc: '',
+                background: '',
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'contain',
                 backgroundPositionX: 'left',
@@ -274,12 +290,20 @@ export const gridTags = [
                 {
                     isCms: false,label: "边框", newProp:'', prop: "border", type: 'array', children: [
                         { isCms: true,label: "边框宽度", newProp:'', prop: "borderWidth", type: "inputNumber", controlsPosition: "right", min: 0 },
-                        { isCms: true,label: "边框样式", newProp:'', prop: "borderStyle", type: "select", width: '80px', list: 'borderStyleList' },
-                        { isCms: true,label: "边框圆角", newProp:'', prop: "borderRadius", type: "inputNumber", controlsPosition: "right", min: 0 },
-                        { isCms: true,label: "边框颜色", newProp:'', prop: "borderColor", type: "color", width: '30px' },
+                        { isCms: true,label: "边框样式", newProp:'', prop: "borderStyle", type: "select", width: '100px', list: 'borderStyleList' },
+                        // { isCms: true,label: "边框圆角", newProp:'', prop: "borderRadius", type: "inputNumber", controlsPosition: "right", min: 0 },
+                        { isCms: true,label: "边框颜色", newProp:'', prop: "borderColor", type: "color", width: '40px' },
                     ]
                 },
-                { isCms: false,label: "背景地址", newProp:'', prop: "bgcSrc", type: "img" },
+                {
+                    isCms: false,label: "圆角", newProp:'', prop: "borderRadius", type: 'array', children: [
+                        { isCms: true,label: "圆角左上", newProp:'', prop: "borderTopLeftRadius", type: "inputNumber", controlsPosition: "right", min: 0 },
+                        { isCms: true,label: "圆角右上", newProp:'', prop: "borderTopRightRadius", type: "inputNumber", controlsPosition: "right", min: 0 },
+                        { isCms: true,label: "圆角右下", newProp:'', prop: "borderBottomRightRadius", type: "inputNumber", controlsPosition: "right", min: 0 },
+                        { isCms: true,label: "圆角左下", newProp:'', prop: "borderBottomLeftRadius", type: "inputNumber", controlsPosition: "right", min: 0  },
+                    ]
+                },
+                { isCms: false,label: "背景地址", newProp:'', prop: "background", type: "img" },
                 { isCms: false,label: "背景重复", newProp:'', prop: "backgroundRepeat", type: "select", list: 'backgroundRepeatList' },
                 { isCms: false,label: "背景尺寸", newProp:'', prop: "backgroundSize", type: "select", allowCreate: true, defaultFirstOption: true, list: 'backgroundSizeList' },
                 {
