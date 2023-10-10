@@ -1,21 +1,32 @@
 <template>
   <div class="nav_container">
     <div class="content">
-      <div
-        id="nav_item"
-        class="nav_item"
-        v-for="item in btnList"
-        :key="item.id"
-        @click="btnClick(item)"
-      >
-        {{ item.name }}
+      <div class="nav_action_box">
+        <div
+          id="nav_item"
+          class="nav_item"
+          v-for="item in btnList"
+          :key="item.id"
+          @click="btnClick(item)"
+        >
+          {{ item.name }}
+        </div>
+      </div>
+      <div class="border_w_box">
+        <el-input-number
+          v-model="num"
+          :min="0"
+          :max="4"
+          size="small"
+          @change="handleChange"
+        />
       </div>
     </div>
   </div>
   <previewPage v-model:visible="previewVisible" title="预览"> </previewPage>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 import { ref, getCurrentInstance } from "vue";
 import previewPage from "@/views/editor/components/preview/index.vue";
 //store管理
@@ -35,6 +46,7 @@ const btnList: any[] = [
     name: "预览",
   },
 ];
+let num: any = ref(useSchema.broderNum);
 const btnClick = (data: any) => {
   switch (data.id) {
     case "0":
@@ -49,6 +61,11 @@ const btnClick = (data: any) => {
     default:
       break;
   }
+};
+
+const handleChange = (val: any) => {
+  console.log(val);
+  useSchema.setData("broderNum", val);
 };
 
 let previewVisible: any = ref(false);
@@ -68,16 +85,27 @@ const preview = () => {
   position: relative;
   height: 100%;
   display: flex;
-  justify-content: center;
-  padding: 0 20px;
+  justify-content: space-between;
+  // padding: 0 20px;
   background-color: #fff;
+  .nav_action_box {
+    display: flex;
+    padding: 0 15px;
+  }
+  .border_w_box {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 15px;
+    border-left: 1px solid #eee;
+  }
 }
 .nav_item {
   display: flex;
   align-items: center;
   height: 100%;
   padding: 0 15px;
-  font-size: 14px;
+  font-size: 13px;
   user-select: none;
   &:hover {
     cursor: pointer;

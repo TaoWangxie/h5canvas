@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import _ from "lodash-es"
+import _ from "lodash-es";
 import { hasOwn, removeNode } from "@/utils/index";
 
 export const useSchemaStore = defineStore({
@@ -14,6 +14,8 @@ export const useSchemaStore = defineStore({
       currentGrid: null as any, //当前组件
       currentGridIndex: null, //当前组件下标
       enterTargetGrid: null as any, //鼠标划入目标元素
+
+      broderNum: 4,
 
       menuShow: false, //右键菜单显隐
       menuTop: 0 as number, //右键菜单位置
@@ -80,37 +82,37 @@ export const useSchemaStore = defineStore({
     //快照
     RECORD_SNAPSHOT() {
       // 添加新的快照
-      this.snapshotData[++this.snapshotIndex] = _.cloneDeep(this.grids)
+      this.snapshotData[++this.snapshotIndex] = _.cloneDeep(this.grids);
       // 在 undo 过程中，添加新的快照时，要将它后面的快照清理掉
       if (this.snapshotIndex < this.snapshotData.length - 1) {
-          this.snapshotData = this.snapshotData.slice(0, this.snapshotIndex + 1)
+        this.snapshotData = this.snapshotData.slice(0, this.snapshotIndex + 1);
       }
       console.log(this.snapshotData);
     },
     //撤销
     UNDO() {
       if (this.snapshotIndex >= 0) {
-          this.snapshotIndex--
-          let grids = _.cloneDeep(this.snapshotData[this.snapshotIndex]) || []
-          this.grids = grids
-          if (this.currentGrid) {
-            // 如果当前组件不在 layoutData 中，则置空
-            let cur = grids.find(grid => this.currentGrid.id === grid.id)
-            this.currentGrid = cur ? cur : null
-          }
+        this.snapshotIndex--;
+        let grids = _.cloneDeep(this.snapshotData[this.snapshotIndex]) || [];
+        this.grids = grids;
+        if (this.currentGrid) {
+          // 如果当前组件不在 layoutData 中，则置空
+          let cur = grids.find((grid) => this.currentGrid.id === grid.id);
+          this.currentGrid = cur ? cur : null;
+        }
       }
     },
     //重做
     REDO() {
-        if (this.snapshotIndex < this.snapshotData.length - 1) {
-          this.snapshotIndex++
-          this.grids = _.cloneDeep(this.snapshotData[this.snapshotIndex])
-          if (this.currentGrid) {
-            // 如果当前组件不在 layoutData 中，则置空
-            let cur = this.grids.find(grid => this.currentGrid.id === grid.id)
-            this.currentGrid = cur ? cur : null
-          }
+      if (this.snapshotIndex < this.snapshotData.length - 1) {
+        this.snapshotIndex++;
+        this.grids = _.cloneDeep(this.snapshotData[this.snapshotIndex]);
+        if (this.currentGrid) {
+          // 如果当前组件不在 layoutData 中，则置空
+          let cur = this.grids.find((grid) => this.currentGrid.id === grid.id);
+          this.currentGrid = cur ? cur : null;
         }
+      }
     },
     //显示menu
     SHOW_CONTEXT_MENU(payload: { top; left }) {

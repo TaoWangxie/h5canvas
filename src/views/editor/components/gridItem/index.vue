@@ -41,8 +41,8 @@
     </template>
   </div>
 </template>
-  
-<script setup lang='ts'>
+
+<script setup lang="ts">
 import _ from "lodash";
 import { ref, computed, watch } from "vue";
 import gridItem from "@/views/editor/components/gridItem/index.vue";
@@ -111,6 +111,11 @@ watch(
     }
   }
 );
+
+const borderW = (num?: number) => {
+  let count = num ? num : 1;
+  return useSchema.broderNum * count;
+};
 //实时赋值样式
 const outBox = [
   "position",
@@ -131,18 +136,19 @@ const getGridStyle = (grid) => {
   const result: any = {
     width:
       typeof width == "number"
-        ? width + 8 + "px"
+        ? width + borderW(2) + "px"
         : width.includes("%")
         ? width
         : "auto",
     height:
       typeof height == "number"
-        ? height + 8 + "px"
+        ? height + borderW(2) + "px"
         : height.includes("%")
         ? height
         : "auto",
     top: top + "px",
     left: left + "px",
+    borderWidth: useSchema.broderNum + "px",
   };
   outBox.map((attr) => {
     switch (typeof config?.data[attr]) {
@@ -159,7 +165,6 @@ const getGridStyle = (grid) => {
   return result;
 };
 const getGridInnerStyle = (grid) => {
-  // console.log(9999999);
   let { width, height } = grid.style;
   const result: any = {
     position: "relative",
@@ -210,8 +215,8 @@ const handleDrop = (e) => {
 const getPosStyle = (e) => {
   const gridInfo = gridRef.value.getBoundingClientRect();
   return {
-    top: e.clientY - gridInfo.y - 4 - 28,
-    left: e.clientX - gridInfo.x - 4 - 108,
+    top: e.clientY - gridInfo.y - borderW() - 28,
+    left: e.clientX - gridInfo.x - borderW() - 108,
   };
 };
 // 组件点击
@@ -276,8 +281,8 @@ const handleMouseDownOnPoint = (point: any, e: any) => {
   const move = (moveEvent) => {
     isMove.value = true;
     let ev = moveEvent || window.event;
-    let width = ev.clientX - disX + disW - 8;
-    let height = ev.clientY - disY + disH - 8;
+    let width = ev.clientX - disX + disW - borderW(2);
+    let height = ev.clientY - disY + disH - borderW(2);
     let params = {};
     switch (point) {
       case "b":
@@ -378,11 +383,13 @@ const getGridPoint = () => {
   return marginPoint;
 };
 </script>
-  
+
 <style lang="scss" scoped>
 .grid_box {
   position: relative;
-  border: 4px solid #d4d7de;
+  border-style: solid;
+  border-color: #d4d7de;
+  // border: 4px solid #d4d7de;
   // padding: 4px;
   box-sizing: border-box;
   background-color: #f5f7fa;
@@ -437,4 +444,3 @@ const getGridPoint = () => {
   border-color: #00ddaa !important;
 }
 </style>
-  
