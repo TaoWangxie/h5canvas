@@ -140,7 +140,6 @@ const btnClick = (val: any) => {
   switch (val.id) {
     case "save":
       saveFn();
-
       break;
     case "":
       break;
