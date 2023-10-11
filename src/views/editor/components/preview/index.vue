@@ -64,9 +64,9 @@ const btnList = [
 
 let comConfig = ref({
   data: {
-    index: 0,
-    name: "",
-    thumbnail: "",
+    index: 7,
+    name: "CMScommon",
+    thumbnail: "测试文字",
   },
   fieldList: [
     {
@@ -171,7 +171,7 @@ const saveFn = () => {
     template: [],
   };
   useSchema.cmsData.fieldList.map((item: any) => {
-    com.props[item.newProp] = useSchema.cmsData.data[item.prop];
+    com.props[item.prop] = useSchema.cmsData.data[item.prop];
     let configItem = {
       name: item.label,
       type: typeMap[item.type],
@@ -179,7 +179,7 @@ const saveFn = () => {
     if (item.list) {
       configItem.dicData = useSchema.cmsData.listTypeInfo[item.list];
     }
-    com.config[item.newProp] = configItem;
+    com.config[item.prop] = configItem;
   });
   console.log(com);
 };
