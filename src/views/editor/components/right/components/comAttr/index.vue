@@ -57,14 +57,14 @@
           ></AttrItem>
         </div>
       </div>
-      <div v-if="!isCheckbox" class="newProp">
+      <div v-if="isNewProp" class="newProp">
         <el-input v-model="item.newProp" style="flex: 1" clearable />
       </div>
     </div>
   </div>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 import _ from "lodash";
 import { ref } from "vue";
 import AttrItem from "./attrItem/index.vue";
@@ -72,10 +72,12 @@ import AttrItem from "./attrItem/index.vue";
 interface Props {
   configInfo: any;
   isCheckbox: boolean;
+  isNewProp: boolean;
 }
 const props = withDefaults(defineProps<Props>(), {
   configInfo: () => {},
   isCheckbox: true,
+  isNewProp: false,
 });
 </script>
 <style lang="scss" scoped>
@@ -99,7 +101,7 @@ const props = withDefaults(defineProps<Props>(), {
       padding-right: 10px;
     }
     .newProp {
-      width: 100px;
+      width: 150px;
       padding-left: 10px;
     }
     .attr_item {

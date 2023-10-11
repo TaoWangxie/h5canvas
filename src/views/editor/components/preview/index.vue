@@ -22,9 +22,13 @@
           </div>
         </div>
         <div class="right">
+          <div class="title">组件配置</div>
+          <ComAttr :configInfo="comConfig" :isCheckbox="false"></ComAttr>
+          <div class="title">属性配置</div>
           <ComAttr
             :configInfo="useSchema.cmsData"
             :isCheckbox="false"
+            :isNewProp="true"
           ></ComAttr>
         </div>
       </div>
@@ -32,7 +36,7 @@
   </el-drawer>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 import _ from "lodash";
 import { ref, watch, provide } from "vue";
 import ComAttr from "../right/components/comAttr/index.vue";
@@ -57,6 +61,37 @@ const btnList = [
     name: "保存",
   },
 ];
+
+let comConfig = ref({
+  data: {
+    index: 0,
+    name: "",
+    thumbnail: "",
+  },
+  fieldList: [
+    {
+      isCms: false,
+      label: "组件key",
+      newProp: "",
+      prop: "name",
+      type: "input",
+    },
+    {
+      isCms: false,
+      label: "组件名称",
+      newProp: "",
+      prop: "thumbnail",
+      type: "input",
+    },
+    {
+      isCms: false,
+      label: "下标",
+      newProp: "",
+      prop: "index",
+      type: "inputNumber",
+    },
+  ],
+});
 
 let dataInfo: any = ref({});
 const handleData = () => {
@@ -85,6 +120,7 @@ const handleFieldList = (data: any, arr: any) => {
     let list = _.cloneDeep(item).list;
     if (item.isCms) {
       if (!item.children) {
+        item.newProp = item.prop;
         item.prop = item.prop + "_" + data.id;
         dataInfo.value.data[item.prop] = data.config.data[prop];
         if (item.list) {
@@ -103,13 +139,49 @@ const handleFieldList = (data: any, arr: any) => {
 const btnClick = (val: any) => {
   switch (val.id) {
     case "save":
-      console.log(useSchema.grids);
+      saveFn();
       break;
     case "":
       break;
     default:
       break;
   }
+};
+
+const typeMap = {
+  input: "input",
+  radio: "radio",
+  select: "select",
+  inputNumber: "inputNumber",
+  color: "color",
+  img: "upload",
+};
+const saveFn = () => {
+  console.log(useSchema.grids);
+  console.log(useSchema.cmsData);
+  let com = {
+    index: comConfig.value.data.index,
+    name: comConfig.value.data.name,
+    thumbnail: {
+      iconUrl: "&#xe6b5;",
+      text: comConfig.value.data.thumbnail,
+    },
+    props: {},
+    config: {},
+    template: [],
+  };
+  useSchema.cmsData.fieldList.map((item: any) => {
+    com.props[item.newProp] = useSchema.cmsData.data[item.prop];
+    let configItem = {
+      name: item.label,
+      type: typeMap[item.type],
+    };
+    if (item.list) {
+      configItem.dicData = useSchema.cmsData.listTypeInfo[item.list];
+    }
+    com.config[item.newProp] = configItem;
+  });
+  console.log(com);
 };
 
 const emits = defineEmits(["update:visible"]);
@@ -176,10 +248,18 @@ const handleClose = () => {
   }
 }
 .right {
-  width: 400px;
+  width: 420px;
   height: 100%;
   flex-shrink: 0;
   background-color: #fff;
   border-left: 1px solid #ebeef5;
+  .title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #ebeef5;
+  }
 }
 </style>
