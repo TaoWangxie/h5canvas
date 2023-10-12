@@ -39,6 +39,7 @@
         @dblclick="handlePointDoubleclick(item, $event)"
       ></div>
     </template>
+    <elementMask v-if="isActive" :grid="grid"></elementMask>
   </div>
 </template>
 
@@ -46,6 +47,7 @@
 import _ from "lodash";
 import { ref, computed, watch } from "vue";
 import gridItem from "@/views/editor/components/gridItem/index.vue";
+import elementMask from "@/views/editor/components/elementMask/index.vue";
 import { removeNode, isOwnChildren } from "@/utils/index";
 import { useSchemaStore } from "@/store/schema";
 const useSchema = useSchemaStore();
