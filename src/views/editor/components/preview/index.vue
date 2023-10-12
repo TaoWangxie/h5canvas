@@ -28,7 +28,7 @@
           <ComAttr
             :configInfo="useSchema.cmsData"
             :isCheckbox="false"
-            :isNewProp="true"
+            :isNewLabel="true"
           ></ComAttr>
         </div>
       </div>
@@ -72,21 +72,21 @@ let comConfig = ref({
     {
       isCms: false,
       label: "组件key",
-      newProp: "",
+      newLabel: "",
       prop: "name",
       type: "input",
     },
     {
       isCms: false,
       label: "组件名称",
-      newProp: "",
+      newLabel: "",
       prop: "thumbnail",
       type: "input",
     },
     {
       isCms: false,
       label: "下标",
-      newProp: "",
+      newLabel: "",
       prop: "index",
       type: "inputNumber",
     },
@@ -120,7 +120,7 @@ const handleFieldList = (data: any, arr: any) => {
     let list = _.cloneDeep(item).list;
     if (item.isCms) {
       if (!item.children) {
-        item.newProp = item.prop;
+        item.newLabel = item.label;
         item.prop = item.prop + "_" + data.id;
         dataInfo.value.data[item.prop] = data.config.data[prop];
         if (item.list) {
@@ -153,7 +153,7 @@ const typeMap = {
   radio: "radio",
   select: "select",
   inputNumber: "inputNumber",
-  color: "color",
+  color: "colorPicker",
   img: "upload",
 };
 const saveFn = () => {
@@ -173,7 +173,7 @@ const saveFn = () => {
   useSchema.cmsData.fieldList.map((item: any) => {
     com.props[item.prop] = useSchema.cmsData.data[item.prop];
     let configItem = {
-      name: item.label,
+      name: item.newLabel ? item.newLabel : label,
       type: typeMap[item.type],
     };
     if (item.list) {
@@ -253,6 +253,7 @@ const handleClose = () => {
   flex-shrink: 0;
   background-color: #fff;
   border-left: 1px solid #ebeef5;
+  overflow-y: auto;
   .title {
     position: relative;
     display: flex;

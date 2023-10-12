@@ -57,8 +57,8 @@
           ></AttrItem>
         </div>
       </div>
-      <div v-if="isNewProp" class="newProp">
-        <el-input v-model="item.newProp" style="flex: 1" clearable />
+      <div v-if="isNewLabel" class="newLabel">
+        <el-input v-model="item.newLabel" style="flex: 1" clearable />
       </div>
     </div>
   </div>
@@ -72,12 +72,12 @@ import AttrItem from "./attrItem/index.vue";
 interface Props {
   configInfo: any;
   isCheckbox: boolean;
-  isNewProp: boolean;
+  isNewLabel: boolean;
 }
 const props = withDefaults(defineProps<Props>(), {
   configInfo: () => {},
   isCheckbox: true,
-  isNewProp: false,
+  isNewLabel: false,
 });
 </script>
 <style lang="scss" scoped>
@@ -100,7 +100,7 @@ const props = withDefaults(defineProps<Props>(), {
       height: 100%;
       padding-right: 10px;
     }
-    .newProp {
+    .newLabel {
       width: 150px;
       padding-left: 10px;
     }

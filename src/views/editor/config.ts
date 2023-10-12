@@ -44,7 +44,7 @@ export const gridTags = [
         {
           isCms: false,
           label: "元素布局",
-          newProp: "",
+          newLabel: "",
           prop: "display",
           type: "select",
           list: "displayList",
@@ -52,7 +52,7 @@ export const gridTags = [
         {
           isCms: false,
           label: "定位",
-          newProp: "",
+          newLabel: "",
           prop: "position",
           type: "radio",
           list: "positionList",
@@ -60,14 +60,14 @@ export const gridTags = [
         {
           isCms: false,
           label: "flex属性",
-          newProp: "",
+          newLabel: "",
           prop: "flex",
           type: "input",
         },
         {
           isCms: false,
           label: "flex换行",
-          newProp: "",
+          newLabel: "",
           prop: "flexWrap",
           type: "select",
           list: "flexWrapList",
@@ -75,14 +75,14 @@ export const gridTags = [
         {
           isCms: false,
           label: "边框",
-          newProp: "",
+          newLabel: "",
           prop: "border",
           type: "array",
           children: [
             {
               isCms: true,
               label: "边框宽度",
-              newProp: "",
+              newLabel: "",
               prop: "borderWidth",
               type: "inputNumber",
               controlsPosition: "right",
@@ -91,17 +91,17 @@ export const gridTags = [
             {
               isCms: true,
               label: "边框样式",
-              newProp: "",
+              newLabel: "",
               prop: "borderStyle",
               type: "select",
               width: "80px",
               list: "borderStyleList",
             },
-            // { isCms: true,label: "边框圆角", newProp:'', prop: "borderRadius", type: "inputNumber", controlsPosition: "right", min: 0 },
+            // { isCms: true,label: "边框圆角", newLabel:'', prop: "borderRadius", type: "inputNumber", controlsPosition: "right", min: 0 },
             {
               isCms: true,
               label: "边框颜色",
-              newProp: "",
+              newLabel: "",
               prop: "borderColor",
               type: "color",
               width: "30px",
@@ -111,14 +111,14 @@ export const gridTags = [
         {
           isCms: false,
           label: "圆角",
-          newProp: "",
+          newLabel: "",
           prop: "borderRadius",
           type: "array",
           children: [
             {
               isCms: true,
               label: "圆角左上",
-              newProp: "",
+              newLabel: "",
               prop: "borderTopLeftRadius",
               type: "inputNumber",
               controlsPosition: "right",
@@ -127,7 +127,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "圆角右上",
-              newProp: "",
+              newLabel: "",
               prop: "borderTopRightRadius",
               type: "inputNumber",
               controlsPosition: "right",
@@ -136,7 +136,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "圆角右下",
-              newProp: "",
+              newLabel: "",
               prop: "borderBottomRightRadius",
               type: "inputNumber",
               controlsPosition: "right",
@@ -145,7 +145,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "圆角左下",
-              newProp: "",
+              newLabel: "",
               prop: "borderBottomLeftRadius",
               type: "inputNumber",
               controlsPosition: "right",
@@ -156,14 +156,14 @@ export const gridTags = [
         {
           isCms: false,
           label: "内边距",
-          newProp: "",
+          newLabel: "",
           prop: "padding",
           type: "array",
           children: [
             {
               isCms: true,
               label: "内上边距",
-              newProp: "",
+              newLabel: "",
               prop: "paddingTop",
               type: "inputNumber",
               controlsPosition: "right",
@@ -172,7 +172,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "内右边距",
-              newProp: "",
+              newLabel: "",
               prop: "paddingRight",
               type: "inputNumber",
               controlsPosition: "right",
@@ -181,7 +181,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "内下边距",
-              newProp: "",
+              newLabel: "",
               prop: "paddingBottom",
               type: "inputNumber",
               controlsPosition: "right",
@@ -190,7 +190,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "内左边距",
-              newProp: "",
+              newLabel: "",
               prop: "paddingLeft",
               type: "inputNumber",
               controlsPosition: "right",
@@ -201,14 +201,14 @@ export const gridTags = [
         {
           isCms: false,
           label: "外边距",
-          newProp: "",
+          newLabel: "",
           prop: "margin",
           type: "array",
           children: [
             {
               isCms: true,
               label: "外上边距",
-              newProp: "",
+              newLabel: "",
               prop: "marginTop",
               type: "inputNumber",
               controlsPosition: "right",
@@ -217,7 +217,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "外右边距",
-              newProp: "",
+              newLabel: "",
               prop: "marginRight",
               type: "inputNumber",
               controlsPosition: "right",
@@ -226,7 +226,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "外下边距",
-              newProp: "",
+              newLabel: "",
               prop: "marginBottom",
               type: "inputNumber",
               controlsPosition: "right",
@@ -235,7 +235,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "外左边距",
-              newProp: "",
+              newLabel: "",
               prop: "marginLeft",
               type: "inputNumber",
               controlsPosition: "right",
@@ -246,7 +246,7 @@ export const gridTags = [
         {
           isCms: false,
           label: "不透明度",
-          newProp: "",
+          newLabel: "",
           prop: "opacity",
           type: "inputNumber",
           min: 0.1,
@@ -255,21 +255,21 @@ export const gridTags = [
         {
           isCms: false,
           label: "背景色",
-          newProp: "",
+          newLabel: "",
           prop: "backgroundColor",
           type: "color",
         },
         {
           isCms: false,
           label: "背景地址",
-          newProp: "",
+          newLabel: "",
           prop: "background",
           type: "img",
         },
         {
           isCms: false,
           label: "背景重复",
-          newProp: "",
+          newLabel: "",
           prop: "backgroundRepeat",
           type: "select",
           list: "backgroundRepeatList",
@@ -277,7 +277,7 @@ export const gridTags = [
         {
           isCms: false,
           label: "背景尺寸",
-          newProp: "",
+          newLabel: "",
           prop: "backgroundSize",
           type: "select",
           allowCreate: true,
@@ -287,14 +287,14 @@ export const gridTags = [
         {
           isCms: false,
           label: "背景位置",
-          newProp: "",
+          newLabel: "",
           prop: "backgroundPosition",
           type: "array",
           children: [
             {
               isCms: true,
               label: "水平背景位置",
-              newProp: "",
+              newLabel: "",
               prop: "backgroundPositionX",
               type: "select",
               allowCreate: true,
@@ -304,7 +304,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "垂直背景位置",
-              newProp: "",
+              newLabel: "",
               prop: "backgroundPositionY",
               type: "select",
               allowCreate: true,
@@ -481,14 +481,14 @@ export const gridTags = [
         {
           isCms: false,
           label: "文本",
-          newProp: "",
+          newLabel: "",
           prop: "text",
           type: "input",
         },
         {
           isCms: false,
           label: "元素布局",
-          newProp: "",
+          newLabel: "",
           prop: "display",
           type: "select",
           list: "displayList",
@@ -496,7 +496,7 @@ export const gridTags = [
         {
           isCms: false,
           label: "定位",
-          newProp: "",
+          newLabel: "",
           prop: "position",
           type: "radio",
           list: "positionList",
@@ -504,14 +504,14 @@ export const gridTags = [
         {
           isCms: false,
           label: "字号",
-          newProp: "",
+          newLabel: "",
           prop: "font",
           type: "array",
           children: [
             {
               isCms: true,
               label: "字号",
-              newProp: "",
+              newLabel: "",
               prop: "fontSize",
               type: "inputNumber",
               controlsPosition: "right",
@@ -520,7 +520,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "加粗",
-              newProp: "",
+              newLabel: "",
               prop: "fontWeight",
               type: "select",
               list: "fontWeightList",
@@ -530,28 +530,28 @@ export const gridTags = [
         {
           isCms: false,
           label: "字体颜色",
-          newProp: "",
+          newLabel: "",
           prop: "color",
           type: "color",
         },
         {
           isCms: false,
           label: "背景色",
-          newProp: "",
+          newLabel: "",
           prop: "backgroundColor",
           type: "color",
         },
         {
           isCms: false,
           label: "内边距",
-          newProp: "",
+          newLabel: "",
           prop: "padding",
           type: "array",
           children: [
             {
               isCms: true,
               label: "内上边距",
-              newProp: "",
+              newLabel: "",
               prop: "paddingTop",
               type: "inputNumber",
               controlsPosition: "right",
@@ -560,7 +560,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "内右边距",
-              newProp: "",
+              newLabel: "",
               prop: "paddingRight",
               type: "inputNumber",
               controlsPosition: "right",
@@ -569,7 +569,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "内下边距",
-              newProp: "",
+              newLabel: "",
               prop: "paddingBottom",
               type: "inputNumber",
               controlsPosition: "right",
@@ -578,7 +578,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "内左边距",
-              newProp: "",
+              newLabel: "",
               prop: "paddingLeft",
               type: "inputNumber",
               controlsPosition: "right",
@@ -589,14 +589,14 @@ export const gridTags = [
         {
           isCms: false,
           label: "外边距",
-          newProp: "",
+          newLabel: "",
           prop: "margin",
           type: "array",
           children: [
             {
               isCms: true,
               label: "外上边距",
-              newProp: "",
+              newLabel: "",
               prop: "marginTop",
               type: "inputNumber",
               controlsPosition: "right",
@@ -605,7 +605,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "外右边距",
-              newProp: "",
+              newLabel: "",
               prop: "marginRight",
               type: "inputNumber",
               controlsPosition: "right",
@@ -614,7 +614,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "外下边距",
-              newProp: "",
+              newLabel: "",
               prop: "marginBottom",
               type: "inputNumber",
               controlsPosition: "right",
@@ -623,7 +623,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "外左边距",
-              newProp: "",
+              newLabel: "",
               prop: "marginLeft",
               type: "inputNumber",
               controlsPosition: "right",
@@ -634,7 +634,7 @@ export const gridTags = [
         {
           isCms: false,
           label: "行高",
-          newProp: "",
+          newLabel: "",
           prop: "lineHeight",
           type: "inputNumber",
           min: 0,
@@ -643,7 +643,7 @@ export const gridTags = [
         {
           isCms: false,
           label: "字间距",
-          newProp: "",
+          newLabel: "",
           prop: "letterSpacing",
           type: "inputNumber",
           min: 0.1,
@@ -652,7 +652,7 @@ export const gridTags = [
         {
           isCms: false,
           label: "不透明度",
-          newProp: "",
+          newLabel: "",
           prop: "opacity",
           type: "inputNumber",
           min: 0.1,
@@ -661,7 +661,7 @@ export const gridTags = [
         {
           isCms: false,
           label: "文字对齐",
-          newProp: "",
+          newLabel: "",
           prop: "textAlign",
           type: "radio",
           list: "textAlignList",
@@ -669,7 +669,7 @@ export const gridTags = [
         {
           isCms: false,
           label: "水平对齐",
-          newProp: "",
+          newLabel: "",
           prop: "justifyContent",
           type: "radio",
           list: "justifyContentList",
@@ -677,7 +677,7 @@ export const gridTags = [
         {
           isCms: false,
           label: "垂直对齐",
-          newProp: "",
+          newLabel: "",
           prop: "alignItems",
           type: "radio",
           list: "alignItemsList",
@@ -685,14 +685,14 @@ export const gridTags = [
         {
           isCms: false,
           label: "边框",
-          newProp: "",
+          newLabel: "",
           prop: "border",
           type: "array",
           children: [
             {
               isCms: true,
               label: "边框宽度",
-              newProp: "",
+              newLabel: "",
               prop: "borderWidth",
               type: "inputNumber",
               controlsPosition: "right",
@@ -701,17 +701,17 @@ export const gridTags = [
             {
               isCms: true,
               label: "边框样式",
-              newProp: "",
+              newLabel: "",
               prop: "borderStyle",
               type: "select",
               width: "100px",
               list: "borderStyleList",
             },
-            // { isCms: true,label: "边框圆角", newProp:'', prop: "borderRadius", type: "inputNumber", controlsPosition: "right", min: 0 },
+            // { isCms: true,label: "边框圆角", newLabel:'', prop: "borderRadius", type: "inputNumber", controlsPosition: "right", min: 0 },
             {
               isCms: true,
               label: "边框颜色",
-              newProp: "",
+              newLabel: "",
               prop: "borderColor",
               type: "color",
               width: "40px",
@@ -721,14 +721,14 @@ export const gridTags = [
         {
           isCms: false,
           label: "圆角",
-          newProp: "",
+          newLabel: "",
           prop: "borderRadius",
           type: "array",
           children: [
             {
               isCms: true,
               label: "圆角左上",
-              newProp: "",
+              newLabel: "",
               prop: "borderTopLeftRadius",
               type: "inputNumber",
               controlsPosition: "right",
@@ -737,7 +737,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "圆角右上",
-              newProp: "",
+              newLabel: "",
               prop: "borderTopRightRadius",
               type: "inputNumber",
               controlsPosition: "right",
@@ -746,7 +746,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "圆角右下",
-              newProp: "",
+              newLabel: "",
               prop: "borderBottomRightRadius",
               type: "inputNumber",
               controlsPosition: "right",
@@ -755,7 +755,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "圆角左下",
-              newProp: "",
+              newLabel: "",
               prop: "borderBottomLeftRadius",
               type: "inputNumber",
               controlsPosition: "right",
@@ -766,14 +766,14 @@ export const gridTags = [
         {
           isCms: false,
           label: "背景地址",
-          newProp: "",
+          newLabel: "",
           prop: "background",
           type: "img",
         },
         {
           isCms: false,
           label: "背景重复",
-          newProp: "",
+          newLabel: "",
           prop: "backgroundRepeat",
           type: "select",
           list: "backgroundRepeatList",
@@ -781,7 +781,7 @@ export const gridTags = [
         {
           isCms: false,
           label: "背景尺寸",
-          newProp: "",
+          newLabel: "",
           prop: "backgroundSize",
           type: "select",
           allowCreate: true,
@@ -791,14 +791,14 @@ export const gridTags = [
         {
           isCms: false,
           label: "背景位置",
-          newProp: "",
+          newLabel: "",
           prop: "backgroundPosition",
           type: "array",
           children: [
             {
               isCms: true,
               label: "水平背景位置",
-              newProp: "",
+              newLabel: "",
               prop: "backgroundPositionX",
               type: "select",
               allowCreate: true,
@@ -808,7 +808,7 @@ export const gridTags = [
             {
               isCms: true,
               label: "垂直背景位置",
-              newProp: "",
+              newLabel: "",
               prop: "backgroundPositionY",
               type: "select",
               allowCreate: true,
@@ -1007,14 +1007,14 @@ export const gridTags = [
         {
           isCms: false,
           label: "地址",
-          newProp: "",
+          newLabel: "",
           prop: "src",
           type: "input",
         },
         {
           isCms: false,
           label: "定位",
-          newProp: "",
+          newLabel: "",
           prop: "position",
           type: "radio",
           list: "positionList",
@@ -1054,7 +1054,7 @@ export const gridTags = [
         {
           isCms: false,
           label: "定位",
-          newProp: "",
+          newLabel: "",
           prop: "position",
           type: "radio",
           list: "positionList",
@@ -1062,7 +1062,7 @@ export const gridTags = [
         {
           isCms: false,
           label: "循环个数",
-          newProp: "",
+          newLabel: "",
           prop: "num",
           type: "inputNumber",
           controlsPosition: "right",
@@ -1071,7 +1071,7 @@ export const gridTags = [
         {
           isCms: false,
           label: "可滚动",
-          newProp: "",
+          newLabel: "",
           prop: "overflowY",
           type: "select",
           list: "overflowList",

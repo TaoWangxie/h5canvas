@@ -35,7 +35,7 @@
   </div>
 </template>
 
-<script setup lang='ts'>
+<script setup lang="ts">
 import _ from "lodash";
 import { ref, VueElement, onMounted, nextTick, watch } from "vue";
 import gridItem from "@/views/editor/components/gridItem/index.vue";
@@ -146,7 +146,7 @@ const handleContextMenu = (e: any) => {
     useSchema.setData("contextmenuType", e.target.dataset.type);
   let pos = getEventInCanvasPos(e);
   let top = e.clientY;
-  let left = e.clientX;
+  let left = e.clientX + 10;
   useSchema.setData("canvasEPos", pos);
   useSchema.SHOW_CONTEXT_MENU({ top, left });
 };
