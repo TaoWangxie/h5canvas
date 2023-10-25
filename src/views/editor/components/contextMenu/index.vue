@@ -27,7 +27,7 @@
   </div>
 </template>
 
-<script lang='ts' setup>
+<script lang="ts" setup>
 import { ref, reactive, computed, onMounted } from "vue";
 import { monitorSelfClick } from "@/utils/index";
 import { useSchemaStore } from "@/store/schema";
@@ -74,7 +74,7 @@ monitorSelfClick("contextmenu", async () => {
   useSchema.HIDE_CONTEXT_MENU();
 });
 
-//菜单点击menu22
+//菜单点击menu223
 const menuClick = (val) => {
   let arr = ["lock", "unlock", "cut", "copy"];
   switch (val) {
