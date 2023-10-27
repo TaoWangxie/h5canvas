@@ -58,7 +58,7 @@ const props = withDefaults(defineProps<Props>(), {
   grid: () => [],
 });
 
-//特殊处理画布中组件外边距
+//特殊处理画布中组件外边距1
 let filterAttrs = ["marginTop", "marginRight", "marginBottom", "marginLeft"];
 const gridInnerData = computed(() => {
   return (config: any) => {
