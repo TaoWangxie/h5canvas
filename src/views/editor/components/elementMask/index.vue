@@ -1,5 +1,6 @@
 <template>
   <div class="elementMask" :style="getElementStyle()"></div>
+  <div class="elementInnerMask" :style="getElementStyle(1)"></div>
 </template>
 
 <script setup lang="ts">
@@ -15,7 +16,7 @@ const props = withDefaults(defineProps<Props>(), {
   grid: () => [],
 });
 
-const getElementStyle = () => {
+const getElementStyle = (type: any) => {
   console.log(props.grid);
   let { width, height } = props.grid.style;
   let {
@@ -36,24 +37,52 @@ const getElementStyle = () => {
   console.log(marginH + paddingH);
   let w =
     typeof width === "string"
-      ? `calc(100% + ${marginW + paddingW}px)`
-      : width + marginW + paddingW + "px";
+      ? `calc(100% + ${marginW}px)`
+      : width + marginW + "px";
   let h =
     typeof height === "string"
-      ? `calc(100% + ${marginH + paddingH}px)`
-      : height + marginH + paddingH + "px";
-  return {
-    width: w,
-    height: h,
-    top: 0,
-    left: 0,
-  };
+      ? `calc(100% + ${marginH}px)`
+      : height + marginH + "px";
+  let t = `${-marginTop}px`;
+  let l = `${-marginLeft}px`;
+  if (!type) {
+    return {
+      width: w,
+      height: h,
+      top: t,
+      left: l,
+      borderLeftWidth: `${marginLeft}px`,
+      borderTopWidth: `${marginTop}px`,
+      borderRightWidth: `${marginRight}px`,
+      borderBottomWidth: `${marginBottom}px`,
+    };
+  } else {
+    return {
+      width: typeof width === "string" ? "100%" : width + "px",
+      height: typeof height === "string" ? "100%" : height + "px",
+      top: 0,
+      left: 0,
+      borderLeftWidth: `${paddingLeft}px`,
+      borderTopWidth: `${paddingTop}px`,
+      borderRightWidth: `${paddingRight}px`,
+      borderBottomWidth: `${paddingBottom}px`,
+    };
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 .elementMask {
+  box-sizing: border-box;
   position: absolute;
-  background-color: rgba(0, 0, 0, 0.4);
+  border-style: solid;
+  border-color: rgba(255, 119, 68, 0.4);
+}
+.elementInnerMask {
+  box-sizing: border-box;
+  position: absolute;
+  border-style: solid;
+  border-color: rgba(102, 255, 102, 0.4);
+  background-color: rgba(64, 158, 255, 0.4);
 }
 </style>
