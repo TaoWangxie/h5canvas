@@ -8,9 +8,9 @@ import { setupGlobalCom } from '@/components/index'
 import element from "element-plus";
 import 'element-plus/dist/index.css'
 import './style.css'
+import { EventBus } from "@/utils/eventBus";
 
-
-
+let eventBus = new EventBus()
 
 let app: any;
 app = createApp(App)
@@ -21,4 +21,5 @@ app.component('svg-icon', svgIcon)
 setupGlobalCom(app)
 setupGlobalH5Com(app)
 app.config.globalProperties.$vm = app;
+app.provide("$eBus",eventBus)
 app.mount('#app')

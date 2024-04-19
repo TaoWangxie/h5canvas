@@ -34,15 +34,15 @@ import _ from "lodash";
 import { Check, Delete } from "@element-plus/icons-vue";
 import { ref, watch } from "vue";
 import { VAceEditor } from "vue3-ace-editor";
-import "ace-builds/src-noconflict/mode-json";
-import "ace-builds/src-noconflict/theme-chrome";
-import ace from "ace-builds";
+// import "ace-builds/src-noconflict/mode-json";
+// import "ace-builds/src-noconflict/theme-chrome";
+// import ace from "ace-builds";
 
 //AceEditor
-ace.config.set(
-  "basePath",
-  "https://ks3-cn-beijing.ksyun.com/vform2021/ace-mini"
-);
+// ace.config.set(
+//   "basePath",
+//   "https://ks3-cn-beijing.ksyun.com/vform2021/ace-mini"
+// );
 const aceConfig = ref({
   lang: "json", //解析json
   theme: "monokai", //主题

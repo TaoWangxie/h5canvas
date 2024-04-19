@@ -4,6 +4,7 @@
     :is="grid.comKey"
     :gridId="grid.id"
     :config="grid.config"
+    @handleEvent="handleEvent"
   >
     <template v-if="grid.children && grid.children.length">
       <Grid v-for="(item, index) in grid.children" :key="index" :grid="item" />
@@ -13,7 +14,7 @@
       
 <script setup lang='ts'>
 import _ from "lodash";
-import { ref, computed, watch } from "vue";
+import { ref, computed, inject } from "vue";
 interface Props {
   grid: any;
 }
@@ -42,6 +43,12 @@ const getGridStyle = (grid) => {
   });
   return result;
 };
+
+const eventBus:any = inject('$eBus')
+const handleEvent = (data)=>{
+  console.log('params:',data)
+  eventBus.emit(data.type,data.data)
+}
 </script>
 <style lang="scss" scoped>
 </style>

@@ -1,12 +1,12 @@
 <template>
-  <div class="Text" :style="styleAttr">
+  <div class="Text" :style="styleAttr" @click="onClick">
     {{ text }}
     <slot name="inner"></slot>
   </div>
 </template>
 
 <script setup lang='ts'>
-import { ref, watch, computed } from "vue";
+import { ref, watch, computed, inject } from "vue";
 import { useSchemaStore } from "@/store/schema";
 const useSchema = useSchemaStore();
 interface Props {
@@ -17,6 +17,11 @@ const props = withDefaults(defineProps<Props>(), {
   config: () => {},
   gridId: "",
 });
+
+const emits = defineEmits(["handleEvent"]);
+const onClick = ()=>{
+  emits("handleEvent", {type:'divAlert', data: '88888'});
+}
 
 const configInfo: any = ref({});
 const text = computed(() => {

@@ -6,7 +6,7 @@
         
 <script setup lang='ts'>
 import _ from "lodash";
-import { ref, computed, watch } from "vue";
+import { ref, computed, inject } from "vue";
 import Grid from "./Grid.vue";
 interface Props {
   grids: any;
@@ -14,6 +14,12 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   grids: () => [],
 });
+
+const divAlert=(data)=>{
+  alert('我是弹窗：'+data)
+}
+const eventBus:any = inject('$eBus')
+eventBus.on('divAlert',divAlert)
 </script>
         
 <style lang="scss" scoped>
