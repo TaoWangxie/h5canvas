@@ -15,11 +15,11 @@ const props = withDefaults(defineProps<Props>(), {
   grids: () => [],
 });
 
-const divAlert=(data)=>{
-  alert('我是弹窗：'+data)
-}
-const eventBus:any = inject('$eBus')
-eventBus.on('divAlert',divAlert)
+const divAlert = (data) => {
+  alert("我是弹窗：" + data);
+};
+const eventBus: any = inject("$eBus");
+eventBus.on("divAlert", divAlert);
 </script>
         
 <style lang="scss" scoped>
