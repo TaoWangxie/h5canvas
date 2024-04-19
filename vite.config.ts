@@ -8,6 +8,7 @@ export default defineConfig({
   plugins: [vue(), createSvg('./src/icons/svg/')],
   server: {
     open: true,
+    host: "0.0.0.0",
     port: 5002,
   },
   base:'/h5canvas/',
