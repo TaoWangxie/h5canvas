@@ -15,7 +15,7 @@ export const useSchemaStore = defineStore({
       currentGridIndex: null, //当前组件下标
       enterTargetGrid: null as any, //鼠标划入目标元素
 
-      broderNum: 4,
+      broderNum: 2,
 
       menuShow: false, //右键菜单显隐
       menuTop: 0 as number, //右键菜单位置
