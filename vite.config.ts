@@ -1,20 +1,20 @@
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import path from 'path'
-import { createSvg } from './src/icons/svgIcon'
+import { defineConfig } from "vite";
+import vue from "@vitejs/plugin-vue";
+import path from "path";
+import { createSvg } from "./src/icons/svgIcon";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), createSvg('./src/icons/svg/')],
+  plugins: [vue(), createSvg("./src/icons/svg/")],
   server: {
-    open: true,
+    open: false,
     host: "0.0.0.0",
     port: 5002,
   },
-  base:'/h5canvas/',
+  base: "/h5canvas/",
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src')
-    }
+      "@": path.resolve(__dirname, "src"),
+    },
   },
-})
+});
